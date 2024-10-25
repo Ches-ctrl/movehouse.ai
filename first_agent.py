@@ -6,7 +6,6 @@ from camel.configs import ChatGPTConfig
 from camel.agents import ChatAgent
 from dotenv import load_dotenv
 
-# Prompt for the API key securely
 # Load environment variables from a .env file
 load_dotenv()
 
@@ -27,8 +26,11 @@ agent = ChatAgent(
     message_window_size=10, # [Optional] the length for chat memory
     )
 
+# Pre-defined user message
+# usr_msg = 'I am entering the CAMEL-AI hackathon, what are some good ideas around multi-agent systems?'
+
 # Define a user message
-usr_msg = 'I am entering the CAMEL-AI hackathon, what are some good ideas around multi-agent systems?'
+usr_msg = input('Please enter your message for the agent: ')
 
 # Sending the message to the agent
 response = agent.step(usr_msg)
