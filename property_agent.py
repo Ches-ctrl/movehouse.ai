@@ -65,6 +65,19 @@ user_input_json = user_input.msgs[0].content
 
 print(user_input_json)
 
+clean_content = user_input_json.strip("```json\n").strip("```")
+
+json_content = json.loads(clean_content)
+
+print(clean_content)
+
+# user_input_json = {
+#     "name": "John Doe",
+#     "email": "tom1@gmail.com",
+#     "phone": "123-456-7890",
+#     "message": "Hello, I have a question about your services."
+# }
+
 # Define the API endpoint
 url = "https://api.skyvern.com/api/v1/tasks"
 
@@ -83,10 +96,10 @@ data = {
     "data_extraction_goal": None,
     "proxy_location": "RESIDENTIAL",
     "navigation_payload": {
-        "name": user_input_json["name"],
-        "email": user_input_json["email"],
-        "phone": user_input_json["phone"],
-        "message": user_input_json["message"]
+        "name": json_content["name"],
+        "email": json_content["email"],
+        "phone": json_content["phone"],
+        "message": json_content["message"]
     },
     "extracted_information_schema": None,
     "totp_verification_url": None,
