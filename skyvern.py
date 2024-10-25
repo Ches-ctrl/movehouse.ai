@@ -1,3 +1,4 @@
+import os
 import requests
 
 # Define the API endpoint
@@ -6,7 +7,7 @@ url = "https://api.skyvern.com/api/v1/tasks"
 # Set up the headers, including the API key for authentication
 headers = {
     "Content-Type": "application/json",
-    "x-api-key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjQ4NjQ3NDcwMTMsInN1YiI6Im9fMjcxNTMxNDUwMTAzNDAyMDU4In0.nDu0S1HyAAQTqrPC94rGInvgTNZCSgOc56IVib_Fwdk"
+    "x-api-key": os.getenv('SKYVERN_API_KEY')
 }
 
 # Define the payload data
